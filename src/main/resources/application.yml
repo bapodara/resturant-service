@@ -1,0 +1,13 @@
+springfox.documentation.swagger.v2.path: /api-docs
+
+server:
+  port: 7777
+  context-path: /v1
+
+spring:
+  data:
+    cassandra:
+      keyspace-name: sample
+      contact-points: localhost
+      
+
