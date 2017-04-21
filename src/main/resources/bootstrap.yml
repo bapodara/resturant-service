@@ -7,3 +7,8 @@ spring:
   application:
     name: resturant-service
     
+#logging:
+#  level:
+#    org.springframework: debug
+    
+    

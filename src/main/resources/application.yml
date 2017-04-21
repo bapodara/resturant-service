@@ -11,3 +11,6 @@ spring:
       contact-points: localhost
       
 
+logging:
+  level:
+    org.springframework: debug 

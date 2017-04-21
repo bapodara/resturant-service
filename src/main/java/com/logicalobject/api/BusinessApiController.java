@@ -29,20 +29,15 @@ import java.util.List;
 @Controller
 @RefreshScope
 public class BusinessApiController implements BusinessApi {
-	
 	@Value("${resturant.name:Hello default}")
     private String message;
 	
     public ResponseEntity<Business> businessBusinessidGet(@ApiParam(value = "id of the business",required=true ) @PathVariable("businessid") String businessid) throws ApiException {
         // do some magic!
-    	
-    	
-    	
     	Business b = new Business();
     	b.setBusinessName("hello"+message);
     	//if (true)
-    	//	throw new ApiException(HttpStatus.BAD_REQUEST, "FAILED!!!!", new Exception());
-    	
+    	//	throw new ApiException(HttpStatus.BAD_REQUEST, "FAILED!!!!", new Exception());    	
         return new ResponseEntity<Business>(b,HttpStatus.OK);
     }
 

@@ -20,7 +20,7 @@ import java.util.List;
 
 @Api(value = "item", description = "the item API")
 public interface ItemApi {
-
+	
     @ApiOperation(value = "Product Types", notes = "The Products endpoint returns information about the *Uber* products offered at a given location. The response includes the display name and other details about each product, and lists the products in the proper display order. ", response = Menuitem.class, tags={ "Items", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Item Detail", response = Menuitem.class),
@@ -43,13 +43,7 @@ public interface ItemApi {
         produces = { "application/json" }, 
         method = RequestMethod.PUT)
     ResponseEntity<Menuitem> itemItemidPut(
-@ApiParam(value = "id of the item",required=true ) @PathVariable("itemid") String itemid
-
-
-,
-
-@ApiParam(value = "body of menuitem" ,required=true ) @RequestBody Menuitem body
-
+@ApiParam(value = "id of the item",required=true ) @PathVariable("itemid") String itemid,@ApiParam(value = "body of menuitem" ,required=true ) @RequestBody Menuitem body
 );
 
 
@@ -60,10 +54,18 @@ public interface ItemApi {
     @RequestMapping(value = "/item",
         produces = { "application/json" }, 
         method = RequestMethod.POST)
-    ResponseEntity<Menuitem> itemPost(
+    ResponseEntity<Menuitem> itemPost(@ApiParam(value = "id of the item" ,required=true ) @RequestBody Menuitem body);
 
-@ApiParam(value = "id of the item" ,required=true ) @RequestBody Menuitem body
-
-);
-
+    
+    
+    
+    @ApiOperation(value = "Product Types", notes = "The Products endpoint returns information about the *Uber* products offered at a given location. The response includes the display name and other details about each product, and lists the products in the proper display order. ", response = Menuitem.class, tags={ "Items", })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "Item Detail", response = Menuitem.class),
+        @ApiResponse(code = 200, message = "Unexpected error", response = Menuitem.class) })
+    @RequestMapping(value = "/itembydesc/{itemid}",
+        produces = { "application/json" }, 
+        method = RequestMethod.GET)
+    ResponseEntity<List<Menuitem>> findByDescriptionGET(@ApiParam(value = "description of the item",required=true ) @PathVariable("desc") String desc);
+    
 }

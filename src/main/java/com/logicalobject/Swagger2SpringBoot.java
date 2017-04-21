@@ -1,16 +1,20 @@
-package io.swagger;
+package com.logicalobject;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.ExitCodeGenerator;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.data.cassandra.repository.config.EnableCassandraRepositories;
 
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @SpringBootApplication
+@EnableCassandraRepositories
 @EnableSwagger2
-@ComponentScan(basePackages = {"io.swagger", "com.logicalobject"})
+@ComponentScan(basePackages = "com.logicalobject,io.swagger")
+@EnableAutoConfiguration
 public class Swagger2SpringBoot implements CommandLineRunner {
 
 	@Override

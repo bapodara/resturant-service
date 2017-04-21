@@ -1,20 +1,22 @@
 package com.logicalobject.model;
 
-import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.logicalobject.model.MenuitemItemtype;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-
 import java.io.Serializable;
+import java.util.Objects;
+
+import org.springframework.data.cassandra.mapping.PrimaryKey;
+import org.springframework.data.cassandra.mapping.Table;
+
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * Menuitem
  */
 @javax.annotation.Generated(value = "class io.swagger.codegen.languages.SpringCodegen", date = "2017-04-10T11:48:41.239-07:00")
 
+@Table(value="items")
 public class Menuitem implements Serializable {
+
+	@PrimaryKey(value="itemid")
 	private String itemId = null;
 	private String businessId = null;
 	private String description = null;

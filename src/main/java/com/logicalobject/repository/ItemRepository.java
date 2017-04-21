@@ -9,7 +9,6 @@ import java.util.UUID;
 public interface ItemRepository  {
 	Menuitem save(Menuitem item);
 	Menuitem update(Menuitem item);
-	Menuitem findOne(UUID hotelId);
+	Menuitem findOne(String itemId);
     void delete(UUID hotelId);
-    List<Menuitem> findByDescription(String desc);
 }

@@ -26,14 +26,10 @@ public interface BusinessApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Item Detail", response = Business.class),
         @ApiResponse(code = 200, message = "Unexpected error", response = Business.class) })
-    @RequestMapping(value = "/business/{businessid}",
+    	@RequestMapping(value = "/business/{businessid}",
         produces = { "application/json" }, 
         method = RequestMethod.GET)
-    ResponseEntity<Business> businessBusinessidGet(
-@ApiParam(value = "id of the business",required=true ) @PathVariable("businessid") String businessid
-
-
-) throws ApiException;
+    	ResponseEntity<Business> businessBusinessidGet(@ApiParam(value = "id of the business",required=true ) @PathVariable("businessid") String businessid) throws ApiException;
 
 
     @ApiOperation(value = "Product Types", notes = "The items endpoint is provided to update information of existing items. ", response = Business.class, tags={ "Items", })
@@ -43,15 +39,7 @@ public interface BusinessApi {
     @RequestMapping(value = "/business/{businessid}",
         produces = { "application/json" }, 
         method = RequestMethod.PUT)
-    ResponseEntity<Business> businessBusinessidPut(
-@ApiParam(value = "id of the item",required=true ) @PathVariable("businessid") String businessid
-
-
-,
-
-@ApiParam(value = "body of menuitem" ,required=true ) @RequestBody Business body
-
-);
+    ResponseEntity<Business> businessBusinessidPut(@ApiParam(value = "id of the item",required=true ) @PathVariable("businessid") String businessid , @ApiParam(value = "body of menuitem" ,required=true ) @RequestBody Business body);
 
 
     @ApiOperation(value = "Product Types", notes = "The item endpoint is provided tp inser information of new items", response = Business.class, tags={ "Is", })
@@ -61,10 +49,6 @@ public interface BusinessApi {
     @RequestMapping(value = "/business",
         produces = { "application/json" }, 
         method = RequestMethod.POST)
-    ResponseEntity<Business> businessPost(
-
-@ApiParam(value = "id of the item" ,required=true ) @RequestBody Business body
-
-);
+    ResponseEntity<Business> businessPost(@ApiParam(value = "id of the item" ,required=true ) @RequestBody Business body);
 
 }
